@@ -4,36 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>uggiomer</title>
-  <link rel="shortcut icon" href="dcs.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="dcs.ico" type="image/x-icon" />
   <style>
-    * {
+    body {
       margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body, html {
-      height: 100%;
       font-family: 'Segoe UI', sans-serif;
-      overflow: hidden;
-    }
-
-    .video-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      min-width: 100%;
-      min-height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
-
-    .content {
-      position: relative;
-      z-index: 1;
-      color: #fff;
       text-align: center;
       padding: 40px 20px;
+      color: #fff;
+      position: relative;
+      z-index: 0;
+      background: black; /* video yüklenene kadar siyah */
+    }
+
+    #background-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -1;
+      object-fit: cover;
     }
 
     img {
@@ -41,33 +34,43 @@
       height: 150px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid #fff;
-      margin-bottom: 20px;
+      border: 3px solid #555;
+      display: block;
+      margin: 30px auto;
+      position: relative;
+      z-index: 1;
     }
 
     h1 {
       font-size: 2.5rem;
-      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
     }
 
     p {
       font-size: 1.2rem;
-      margin-bottom: 30px;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
     }
 
     .social-links {
+      margin-top: 50px;
       display: flex;
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
     }
 
     .social-links a {
       display: inline-block;
       padding: 15px 25px;
-      background-color: rgba(255, 255, 255, 0.85);
+      background-color: rgba(255, 255, 255, 0.8);
       border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       text-decoration: none;
       color: #222;
       font-weight: 600;
@@ -76,40 +79,40 @@
 
     .social-links a:hover {
       transform: scale(1.05);
-      background-color: #eee;
+      background-color: #f0f0f0;
     }
 
     footer {
-      margin-top: 50px;
+      margin-top: 60px;
       font-size: 0.9rem;
-      color: #fff;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+      color: #ccc;
     }
   </style>
 </head>
 <body>
 
-  <!-- Arka Plan Videosu -->
-  <video class="video-bg" autoplay muted loop>
-    <source src="https://streamable.com/msu2d2" type="video/mp4">
+  <video autoplay muted loop id="background-video" playsinline>
+    <source src="video.mp4" type="video/mp4" />
     Tarayıcınız video etiketini desteklemiyor.
   </video>
 
-  <!-- İçerik -->
-  <div class="content">
-    <img src="https://raw.githubusercontent.com/uggiomer/site/main/pp%20dc.jpg" alt="Profil Fotoğrafı" />
-    <h1>Hoş Geldin!</h1>
-    <p>Sosyal medya hesaplarım</p>
+  <img src="https://raw.githubusercontent.com/uggiomer/site/main/pp%20dc.jpg" alt="Profil Fotoğrafı" />
 
-    <div class="social-links">
-      <a href="https://instagram.com/uggiomer18" target="_blank">📸 Instagram</a>
-      <a href="https://youtube.com/@ROGIN97" target="_blank">▶️ YouTube</a>
-      <a href="https://discord.gg/cTfzBf4Cx3" target="_blank">💬 Discord</a>
-    </div>
+  <h1>Hoş Geldin!</h1>
+  <p>Sosyal medya hesaplarım</p>
 
-    <footer>
-      &copy; 2025 attempt by uggiomer :)
-    </footer>
+  <div class="social-links">
+    <a href="https://instagram.com/uggiomer18" target="_blank">📸 Instagram</a>
+    <a href="https://youtube.com/@ROGIN97" target="_blank">▶️ YouTube</a>
+    <a href="https://discord.gg/cTfzBf4Cx3" target="_blank">💬 Discord</a>
   </div>
+
+  <footer>
+    &copy; 2025 attempt by uggiomer :)
+  </footer>
 
 </body>
 </html>

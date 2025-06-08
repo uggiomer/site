@@ -6,20 +6,34 @@
   <title>uggiomer</title>
   <link rel="shortcut icon" href="dcs.ico" type="image/x-icon">
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
-      background-size: 400% 400%;
-      animation: animatedGradient 15s ease infinite;
-      text-align: center;
-      padding: 40px 20px;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    @keyframes animatedGradient {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
     }
 
     img {
@@ -27,23 +41,21 @@
       height: 150px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid #555;
-      display: block;
-      margin: 30px auto;
+      border: 3px solid #fff;
+      margin-bottom: 20px;
     }
 
     h1 {
       font-size: 2.5rem;
-      color: #333;
+      margin-bottom: 10px;
     }
 
     p {
       font-size: 1.2rem;
-      color: #666;
+      margin-bottom: 30px;
     }
 
     .social-links {
-      margin-top: 50px;
       display: flex;
       justify-content: center;
       gap: 20px;
@@ -53,9 +65,9 @@
     .social-links a {
       display: inline-block;
       padding: 15px 25px;
-      background-color: #fff;
+      background-color: rgba(255, 255, 255, 0.85);
       border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
       text-decoration: none;
       color: #222;
       font-weight: 600;
@@ -64,32 +76,40 @@
 
     .social-links a:hover {
       transform: scale(1.05);
-      background-color: #f0f0f0;
+      background-color: #eee;
     }
 
     footer {
-      margin-top: 60px;
+      margin-top: 50px;
       font-size: 0.9rem;
-      color: #aaa;
+      color: #fff;
     }
   </style>
 </head>
 <body>
 
-  <img src="https://raw.githubusercontent.com/uggiomer/site/main/pp%20dc.jpg" alt="Profil Fotoğrafı" />
+  <!-- Arka Plan Videosu -->
+  <video class="video-bg" autoplay muted loop>
+    <source src="videoplayback (1).mp4" type="video/mp4">
+    Tarayıcınız video etiketini desteklemiyor.
+  </video>
 
-  <h1>Hoş Geldin!</h1>
-  <p>Sosyal medya hesaplarım</p>
+  <!-- İçerik -->
+  <div class="content">
+    <img src="https://raw.githubusercontent.com/uggiomer/site/main/pp%20dc.jpg" alt="Profil Fotoğrafı" />
+    <h1>Hoş Geldin!</h1>
+    <p>Sosyal medya hesaplarım</p>
 
-  <div class="social-links">
-    <a href="https://instagram.com/uggiomer18" target="_blank">📸 Instagram</a>
-    <a href="https://youtube.com/@ROGIN97" target="_blank">▶️ YouTube</a>
-    <a href="https://discord.gg/cTfzBf4Cx3" target="_blank">💬 Discord</a>
+    <div class="social-links">
+      <a href="https://instagram.com/uggiomer18" target="_blank">📸 Instagram</a>
+      <a href="https://youtube.com/@ROGIN97" target="_blank">▶️ YouTube</a>
+      <a href="https://discord.gg/cTfzBf4Cx3" target="_blank">💬 Discord</a>
+    </div>
+
+    <footer>
+      &copy; 2025 attempt by uggiomer :)
+    </footer>
   </div>
-
-  <footer>
-    &copy; 2025 attempt by uggiomer :)
-  </footer>
 
 </body>
 </html>

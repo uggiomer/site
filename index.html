@@ -6,6 +6,7 @@
   <title>uggiomer</title>
   <link rel="shortcut icon" href="dcs.ico" type="image/x-icon">
   <style>
+    /* Arka plan video ayarları */
     #bg-video {
       position: fixed;
       right: 0;
@@ -26,6 +27,22 @@
       padding: 40px 20px;
       position: relative;
       color: white;
+    }
+
+    /* Müzik Aç butonu */
+    #music-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 999;
+      padding: 10px 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
 
     img {
@@ -86,6 +103,10 @@
     Tarayıcınız video etiketini desteklemiyor.
   </video>
 
+  <!-- Müzik Aç Butonu -->
+  <button id="music-button">🎵 Müzik Aç</button>
+  <audio id="bg-music" src="music.mp3"></audio>
+
   <!-- Profil Fotoğrafı -->
   <img src="https://raw.githubusercontent.com/uggiomer/site/main/pp%20dc.jpg" alt="Profil Fotoğrafı" />
 
@@ -102,6 +123,21 @@
   <footer>
     &copy; 2025 attempt by uggiomer :)
   </footer>
+
+  <script>
+    const musicButton = document.getElementById('music-button');
+    const music = document.getElementById('bg-music');
+
+    musicButton.addEventListener('click', () => {
+      if (music.paused) {
+        music.play();
+        musicButton.textContent = '⏸ Müzik Durdur';
+      } else {
+        music.pause();
+        musicButton.textContent = '🎵 Müzik Aç';
+      }
+    });
+  </script>
 
 </body>
 </html>

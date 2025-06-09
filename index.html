@@ -2,106 +2,56 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>uggiomer</title>
-  <link rel="shortcut icon" href="dcs.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>uggiomer - Müzik Butonu</title>
   <style>
-    #bg-video {
+    /* Butonu sağ üst köşeye yerleştir */
+    #music-button {
       position: fixed;
-      right: 0;
-      bottom: 0;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      z-index: -1;
-      object-fit: cover;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: none;
-      text-align: center;
-      padding: 40px 20px;
-      position: relative;
-      color: white;
-    }
-
-    img {
-      position: relative;
-      z-index: 10;
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #555;
-      display: block;
-      margin: 30px auto;
-    }
-
-    h1, p, .social-links, footer {
-      position: relative;
-      z-index: 10;
-      color: white;
-    }
-
-    .social-links {
-      margin-top: 50px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .social-links a {
-      display: inline-block;
-      padding: 15px 25px;
+      top: 20px;
+      right: 20px;
+      padding: 10px 18px;
       background-color: rgba(255, 255, 255, 0.8);
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      text-decoration: none;
-      color: #222;
-      font-weight: 600;
-      transition: all 0.2s ease;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      transition: background-color 0.3s ease;
+      z-index: 1000;
     }
-
-    .social-links a:hover {
-      transform: scale(1.05);
-      background-color: #f0f0f0;
-    }
-
-    footer {
-      margin-top: 60px;
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.7);
+    #music-button:hover {
+      background-color: rgba(255, 255, 255, 1);
     }
   </style>
 </head>
 <body>
 
-  <!-- Arka Plan Videosu -->
-  <video autoplay muted loop id="bg-video" playsinline>
-    <source src="video.mp4" type="video/mp4" />
-    Tarayıcınız video etiketini desteklemiyor.
-  </video>
+  <!-- Müzik aç/kapat butonu -->
+  <button id="music-button">Müzik Aç</button>
 
-  <!-- Profil Fotoğrafı -->
-  <img src="https://raw.githubusercontent.com/uggiomer/site/main/pp%20dc.jpg" alt="Profil Fotoğrafı" />
+  <!-- Gizli audio elementi -->
+  <audio id="my-audio" loop>
+    <source src="mymusic.mp3" type="audio/mpeg" />
+    Tarayıcınız audio etiketini desteklemiyor.
+  </audio>
 
-  <h1>Hoş Geldin!</h1>
-  <p>Sosyal medya hesaplarım</p>
+  <script>
+    const musicBtn = document.getElementById('music-button');
+    const audio = document.getElementById('my-audio');
+    let playing = false;
 
-  <div class="social-links">
-    <a href="https://instagram.com/uggiomer18" target="_blank">📸 Instagram</a>
-    <a href="https://www.youtube.com/@uggi99" target="_blank">▶️ YouTube</a>
-    <a href="https://discord.gg/cTfzBf4Cx3" target="_blank">💬 Discord</a>
-    <a href="https://open.spotify.com/playlist/25Pc1B2hNdFlz84t2Pw0Hg?si=54bede176f2d4c86" target="_blank">🎧 Spotify</a>
-  </div>
-
-  <footer>
-    &copy; 2025 attempt by uggiomer :)
-  </footer>
+    musicBtn.addEventListener('click', () => {
+      if (!playing) {
+        audio.play();
+        musicBtn.textContent = 'Müziği Kapat';
+      } else {
+        audio.pause();
+        musicBtn.textContent = 'Müzik Aç';
+      }
+      playing = !playing;
+    });
+  </script>
 
 </body>
 </html>

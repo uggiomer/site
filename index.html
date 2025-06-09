@@ -6,36 +6,44 @@
   <title>uggiomer</title>
   <link rel="shortcut icon" href="dcs.ico" type="image/x-icon">
   <style>
+    #bg-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -1;
+      object-fit: cover;
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #111;
-      color: white;
+      background: none;
       text-align: center;
       padding: 40px 20px;
-    }
-
-    #music-button {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      padding: 10px 20px;
-      background-color: white;
-      color: black;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      z-index: 100;
+      position: relative;
+      color: white;
     }
 
     img {
+      position: relative;
+      z-index: 10;
       width: 150px;
       height: 150px;
       border-radius: 50%;
+      object-fit: cover;
       border: 3px solid #555;
-      margin: 30px auto;
       display: block;
+      margin: 30px auto;
+    }
+
+    h1, p, .social-links, footer {
+      position: relative;
+      z-index: 10;
+      color: white;
     }
 
     .social-links {
@@ -47,36 +55,36 @@
     }
 
     .social-links a {
-      background: white;
-      color: black;
+      display: inline-block;
+      padding: 15px 25px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       text-decoration: none;
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-weight: bold;
-      transition: 0.3s;
+      color: #222;
+      font-weight: 600;
+      transition: all 0.2s ease;
     }
 
     .social-links a:hover {
-      background: #ddd;
+      transform: scale(1.05);
+      background-color: #f0f0f0;
     }
 
     footer {
       margin-top: 60px;
       font-size: 0.9rem;
-      color: #aaa;
+      color: rgba(255,255,255,0.7);
     }
   </style>
 </head>
 <body>
 
-  <!-- Müzik Butonu -->
-  <button id="music-button">🎵 Müzik Aç</button>
-
-  <!-- Müzik -->
-  <audio id="my-audio" loop>
-    <source src="mymusic.mp3" type="audio/mpeg" />
-    Tarayıcınız bu müziği desteklemiyor.
-  </audio>
+  <!-- Arka Plan Videosu -->
+  <video autoplay muted loop id="bg-video" playsinline>
+    <source src="video.mp4" type="video/mp4" />
+    Tarayıcınız video etiketini desteklemiyor.
+  </video>
 
   <!-- Profil Fotoğrafı -->
   <img src="https://raw.githubusercontent.com/uggiomer/site/main/pp%20dc.jpg" alt="Profil Fotoğrafı" />
@@ -94,23 +102,6 @@
   <footer>
     &copy; 2025 attempt by uggiomer :)
   </footer>
-
-  <script>
-    const btn = document.getElementById("music-button");
-    const audio = document.getElementById("my-audio");
-    let isPlaying = false;
-
-    btn.addEventListener("click", () => {
-      if (isPlaying) {
-        audio.pause();
-        btn.textContent = "🎵 Müzik Aç";
-      } else {
-        audio.play();
-        btn.textContent = "⏸️ Müzik Kapat";
-      }
-      isPlaying = !isPlaying;
-    });
-  </script>
 
 </body>
 </html>

@@ -2,11 +2,10 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>uggiomer</title>
-  <link rel="shortcut icon" href="dcs.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="dcs.ico" type="image/x-icon">
   <style>
-    /* Arka plan video */
     #bg-video {
       position: fixed;
       right: 0;
@@ -17,10 +16,8 @@
       height: auto;
       z-index: -1;
       object-fit: cover;
-      filter: brightness(0.7); /* Videoyu biraz karartır, yazı okunur */
     }
 
-    /* Body düzeni */
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -31,7 +28,6 @@
       color: white;
     }
 
-    /* Profil fotoğrafı */
     img {
       position: relative;
       z-index: 10;
@@ -44,15 +40,12 @@
       margin: 30px auto;
     }
 
-    /* Yazılar ve linkler üstte */
     h1, p, .social-links, footer {
       position: relative;
       z-index: 10;
       color: white;
-      text-shadow: 0 0 8px rgba(0,0,0,0.7);
     }
 
-    /* Sosyal medya linkleri */
     .social-links {
       margin-top: 50px;
       display: flex;
@@ -83,36 +76,15 @@
       font-size: 0.9rem;
       color: rgba(255,255,255,0.7);
     }
-
-    /* Müzik butonu sağ üstte */
-    #music-button {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      padding: 10px 18px;
-      background-color: rgba(255, 255, 255, 0.8);
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-      transition: background-color 0.3s ease;
-      z-index: 1000;
-    }
-    #music-button:hover {
-      background-color: rgba(255, 255, 255, 1);
-    }
   </style>
 </head>
 <body>
 
-  <!-- Arka plan video -->
   <video autoplay muted loop id="bg-video" playsinline>
     <source src="video.mp4" type="video/mp4" />
     Tarayıcınız video etiketini desteklemiyor.
   </video>
 
-  <!-- Profil fotoğrafı -->
   <img src="https://raw.githubusercontent.com/uggiomer/site/main/pp%20dc.jpg" alt="Profil Fotoğrafı" />
 
   <h1>Hoş Geldin!</h1>
@@ -127,32 +99,6 @@
   <footer>
     &copy; 2025 attempt by uggiomer :)
   </footer>
-
-  <!-- Müzik aç/kapat butonu -->
-  <button id="music-button">Müzik Aç</button>
-
-  <!-- Gizli audio elementi -->
-  <audio id="my-audio" loop>
-    <source src="mymusic.mp3" type="audio/mpeg" />
-    Tarayıcınız audio etiketini desteklemiyor.
-  </audio>
-
-  <script>
-    const musicBtn = document.getElementById('music-button');
-    const audio = document.getElementById('my-audio');
-    let playing = false;
-
-    musicBtn.addEventListener('click', () => {
-      if (!playing) {
-        audio.play();
-        musicBtn.textContent = 'Müziği Kapat';
-      } else {
-        audio.pause();
-        musicBtn.textContent = 'Müzik Aç';
-      }
-      playing = !playing;
-    });
-  </script>
 
 </body>
 </html>
